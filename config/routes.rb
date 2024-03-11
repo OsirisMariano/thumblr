@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :posts
+  namespace :administrate do
+    resources :posts, only: [:new, :index, :show]
+  end
+
   root "posts#index"
 end

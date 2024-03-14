@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :administrate do
-    resources :posts, only: [:new, :index, :show]
+    resources :posts, only: [:new, :index, :show, :create]
   end
 
   root "posts#index"

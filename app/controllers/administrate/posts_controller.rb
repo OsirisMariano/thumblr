@@ -30,7 +30,7 @@ module Administrate
 
     def update
       @post = Post.find(params[:id])
-      if @post.update(post_params)
+      if @post.update(params[:post].permit(:title, :body))
         redirect_to(administrate_posts_path(@post))
       else
         render("edit")
@@ -41,7 +41,7 @@ module Administrate
       @post = Post.find(params[:id])
       @post.destroy
 
-      redirect_to(root_path)
+      redirect_to root_path
     end
 
     private

@@ -1,7 +1,7 @@
-<%= form_for [:administrate, @post] do |f| %>
+<%= form_with(model: [:administrate, post]) do |form| %>
 <% if @post.errors.any? %>
 <div id="errors">
-  <h2><%= pluralize(@post.errors.count, "error") %>Stopped this post from saving</h2>
+  <h2><%= pluralize(post.errors.count, "error") %>Stopped this post from saving</h2>
   <ul>
     <% @post.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>

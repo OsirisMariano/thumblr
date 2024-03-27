@@ -1,8 +1,11 @@
+<h1>Posts</h1>
+<div id="posts">
 <% @posts.each do |post| %>
-<div class="post_wrapper">
-  <h2 class="title"><%= link_to post.title, [:administrate, post] %></h2>
-  <p class="body"><%= truncate(post.body, length:100) %></p>
-  <p class="date"><%= time_ago_in_words(post.created_at) %></p>
+  <%= render post %>
+
+  <p>
+    <%= link_to "Show this post", [:administrate, post] %></p>
 </div>
+<br>
 <% end %>
 <%= link_to  "New Post", new_administrate_post_path %>
